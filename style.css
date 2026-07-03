@@ -1,0 +1,239 @@
+/* --- Design System & Theming --- */
+:root {
+    --earth-brown: #5d4037;
+    --khadi-cream: #fcf8f2;
+    --forest-green: #2e7d32;
+    --accent-orange: #e65100;
+    --dark-charcoal: #2b2b2b;
+    --soft-white: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--khadi-cream);
+    color: var(--dark-charcoal);
+    line-height: 1.6;
+}
+
+/* --- Layout Structures --- */
+header {
+    background-color: var(--soft-white);
+    border-bottom: 4px solid var(--forest-green);
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.logo-area h1 {
+    color: var(--earth-brown);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.logo-area span {
+    color: var(--forest-green);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-charcoal);
+    margin-left: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--forest-green);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(93, 64, 55, 0.7), rgba(46, 125, 50, 0.7)), 
+                url('https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    color: var(--soft-white);
+    padding: 8rem 5% 6rem 5%;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+}
+
+/* --- Section Defaults --- */
+.container {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+h3.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--earth-brown);
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+h3.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-orange);
+    margin: 0.5rem auto 0 auto;
+}
+
+/* --- Grid & Card Modules --- */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--soft-white);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 4px solid var(--forest-green);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h4 {
+    color: var(--earth-brown);
+    margin-bottom: 0.8rem;
+    font-size: 1.25rem;
+}
+
+/* --- Image Gallery Frame --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+    height: 200px;
+    box-shadow: var(--shadow);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* --- Interactive Budget Sandbox Widget --- */
+.widget-box {
+    background: var(--soft-white);
+    border: 2px solid var(--earth-brown);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+}
+
+.widget-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.widget-btn {
+    background-color: var(--khadi-cream);
+    border: 1px solid var(--earth-brown);
+    color: var(--earth-brown);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.widget-btn.active, .widget-btn:hover {
+    background-color: var(--forest-green);
+    color: var(--soft-white);
+    border-color: var(--forest-green);
+}
+
+.display-panel {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 5px solid var(--accent-orange);
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ddd;
+}
+
+/* --- Footnotes & Project Metadata --- */
+footer {
+    background-color: var(--earth-brown);
+    color: var(--khadi-cream);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 5rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 1rem; }
+    nav a { margin: 0 0.5rem; }
+    .hero h2 { font-size: 2rem; }
+}
